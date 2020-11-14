@@ -1,0 +1,6 @@
+[submodule "software/libraries/spdlog"]
+	path = software/libraries/spdlog
+	url = git@github.com:gabime/spdlog.git
+[submodule "software/libraries/cimg"]
+	path = software/libraries/cimg
+	url = https://github.com/dtschump/CImg
