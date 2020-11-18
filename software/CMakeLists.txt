@@ -9,10 +9,16 @@ add_library(hasher
 	${SOURCE_DIR}/core/Core.cpp
 	${SOURCE_DIR}/core/Log.cpp
 	${SOURCE_DIR}/application/Application.cpp
+	${SOURCE_DIR}/algorythm/Phash.cpp
 )
 
 find_package(spdlog
-	CONFIG
+	REQUIRED
+)
+
+find_package(ImageMagick
+	COMPONENTS
+	Magick++
 )
 
 target_include_directories(hasher
@@ -20,11 +26,14 @@ target_include_directories(hasher
 	${INCLUDE_DIR}/
 	${INCLUDE_DIR}/core
 	${INCLUDE_DIR}/application
+	${INCLUDE_DIR}/algorythm
+	${ImageMagick_INCLUDE_DIRS}
 )
 
 target_link_libraries(hasher
 	PUBLIC
 	spdlog::spdlog
+	${ImageMagick_LIBRARIES}
 )
 
 set_target_properties(hasher
