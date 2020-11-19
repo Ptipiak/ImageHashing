@@ -13,8 +13,5 @@ Hasher::Application* Hasher::CreateApplication()
 
 int main(int argc, char** argv) {
 	Hasher::Log::init();
-	std::cout << "Welcome to the interface\n";
-	INFO("Welcome to spdlog.");
-	WARN("This is a warning from spdlog.");
 	Hasher::phash(argv[1]);
 }

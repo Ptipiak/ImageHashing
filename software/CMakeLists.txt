@@ -10,6 +10,7 @@ add_library(hasher
 	${SOURCE_DIR}/core/Log.cpp
 	${SOURCE_DIR}/application/Application.cpp
 	${SOURCE_DIR}/algorythm/Phash.cpp
+	${SOURCE_DIR}/algorythm/LoG.cpp
 )
 
 find_package(spdlog
