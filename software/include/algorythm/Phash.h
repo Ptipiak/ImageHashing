@@ -4,6 +4,6 @@
 
 namespace Hasher {
 
-	EXPORT void phash(std::string file_path);
+	EXPORT void phash(std::string file_path, double sigma);
 
 }

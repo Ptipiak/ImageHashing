@@ -2,6 +2,7 @@
 #include <math.h>
 #include <iostream>
 #include <vector>
+#include <stdexcept>
 
 namespace Hasher {
 	std::unique_ptr<std::vector<double>> LoG(int width, int height, double sigma) {
@@ -11,14 +12,10 @@ namespace Hasher {
 
 		for(y=-height; y<=height; y++) {
 			for(x=-width; x<=width; x++) {
-				/* filter.push_back(1/pow(2*M_PI*sigma, 2.0)); */
-				/* filter.back() = filter.back()*exp(-((pow(x, 2.0)+pow(y, 2.0))/2*(pow(sigma, 2.0)))); */
-				filter.push_back(exp(-(x*x+y*y)/(2*sigma*sigma))/(2*M_PI*sigma*sigma));
+				filter.push_back(x*x+y*y-2*sigma*sigma/pow(sigma, 4));
+				filter.back() = filter.back() * exp(-(x*x+y*y)/(2*sigma*sigma))/(2*M_PI*sigma*sigma);
 				sum += filter.back();
-				/* std::cout << y << "," << x << ", "; */
-				std::cout << filter.back() << ", ";
 			}
-			std::cout << "\n";
 		}
 
 		std::vector<double>::iterator it;

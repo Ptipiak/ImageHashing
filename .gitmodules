@@ -4,3 +4,6 @@
 [submodule "software/libraries/image-magick"]
 	path = software/libraries/image-magick
 	url = https://github.com/ImageMagick/ImageMagick.git
+[submodule "software/include/cli11"]
+	path = software/include/cli11
+	url = https://github.com/CLIUtils/CLI11.git

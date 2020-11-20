@@ -6,3 +6,6 @@
 #include "core/Log.h"
 #include "application/Application.h"
 #include "algorythm/Phash.h"
+#include "CLI/App.hpp"
+#include "CLI/Formatter.hpp"
+#include "CLI/Config.hpp"

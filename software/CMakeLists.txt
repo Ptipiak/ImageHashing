@@ -13,11 +13,15 @@ add_library(hasher
 	${SOURCE_DIR}/algorythm/LoG.cpp
 )
 
+add_subdirectory(${INCLUDE_DIR}/cli11
+	./software/libraries/
+)
+
 find_package(spdlog
-	REQUIRED
 )
 
 find_package(ImageMagick
+	REQUIRED
 	COMPONENTS
 	Magick++
 )
@@ -35,6 +39,7 @@ target_link_libraries(hasher
 	PUBLIC
 	spdlog::spdlog
 	${ImageMagick_LIBRARIES}
+	CLI11::CLI11
 )
 
 set_target_properties(hasher
