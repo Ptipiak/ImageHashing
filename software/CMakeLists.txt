@@ -11,6 +11,7 @@ add_library(hasher
 	${SOURCE_DIR}/application/Application.cpp
 	${SOURCE_DIR}/algorythm/Phash.cpp
 	${SOURCE_DIR}/algorythm/LoG.cpp
+	${SOURCE_DIR}/algorythm/DCT.cpp
 )
 
 add_subdirectory(${INCLUDE_DIR}/cli11
