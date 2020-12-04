@@ -4,3 +4,6 @@
 [submodule "software/libraries/cli11"]
 	path = software/libraries/cli11
 	url = https://github.com/CLIUtils/CLI11.git
+[submodule "software/libraries/opencv"]
+	path = software/libraries/opencv
+	url = https://github.com/opencv/opencv.git
