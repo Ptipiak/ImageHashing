@@ -9,5 +9,7 @@ project(ImageHashing VERSION 1.1 DESCRIPTION "A image hashing command line tool"
 
 set(SOFTWARE_DIR ${CMAKE_CURRENT_LIST_DIR}/software)
 set(INTERFACE_DIR ${CMAKE_CURRENT_LIST_DIR}/interface)
+set(BUILD_DIR ${CMAKE_CURRENT_LIST_DIR}/build)
+
 add_subdirectory(${SOFTWARE_DIR})
 add_subdirectory(${INTERFACE_DIR})

@@ -10,21 +10,33 @@ add_library(hasher
 	${SOURCE_DIR}/core/Log.cpp
 	${SOURCE_DIR}/application/Application.cpp
 	${SOURCE_DIR}/algorythm/Phash.cpp
-	${SOURCE_DIR}/algorythm/LoG.cpp
-	${SOURCE_DIR}/algorythm/DCT.cpp
 )
 
-add_subdirectory(${INCLUDE_DIR}/cli11
-	./software/libraries/
+add_subdirectory(${LIBRARIES_DIR}/cli11
+	${BUILD_DIR}/software/cli11/
 )
 
-find_package(spdlog
+add_subdirectory(${LIBRARIES_DIR}/spdlog
+	${BUILD_DIR}/software/spdlog/
 )
 
-find_package(ImageMagick
+add_subdirectory(${LIBRARIES_DIR}/opencv
+	${BUILD_DIR}/software/opencv/
+)
+
+set(OpenCV_DIR ${BUILD_DIR}/opencv/)
+
+set(BUILD_LIST
+	"core",
+	"imgproc",
+	"imgcodes",
+	"highgui"
+)
+
+find_package(OpenCV 
 	REQUIRED
-	COMPONENTS
-	Magick++
+	HINTS
+	${BUILD_DIR}
 )
 
 target_include_directories(hasher
@@ -33,14 +45,20 @@ target_include_directories(hasher
 	${INCLUDE_DIR}/core
 	${INCLUDE_DIR}/application
 	${INCLUDE_DIR}/algorythm
-	${ImageMagick_INCLUDE_DIRS}
+	${OpenCV_INCLUDE_DIRS}
+	${OpenCV_INCLUDE_DIR}
+)
+
+
+MESSAGE("Libs to be linked:"
+	${OpenCV_LIBS}
 )
 
 target_link_libraries(hasher
 	PUBLIC
 	spdlog::spdlog
-	${ImageMagick_LIBRARIES}
 	CLI11::CLI11
+	${OpenCV_LIBS}
 )
 
 set_target_properties(hasher

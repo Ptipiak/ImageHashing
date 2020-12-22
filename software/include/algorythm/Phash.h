@@ -5,5 +5,6 @@
 namespace Hasher {
 
 	EXPORT void phash(std::string file_path, double sigma);
+	void vectorToHash(cv::Mat& matrix, std::function<int(int)> callback);
 
 }
